@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="郭庆的博客">
+  <meta name="keywords" content="web前端, Web, 前端开发, 前端博客">
+  
+    <link rel="icon" href="/images/favicon_32X32.ico">
+  
+  
+  <title>GQ个人博客</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" /> -->
+</head>
+
+<body>
+  <header>
+  <div class="header-nav">
+    <div class="header-container">
+    <a class='logo' href="/">
+      <span>GQ个人博客</span>
+    </a>
+
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link active">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/categories" class="item-link">分类</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/post" class="item-link">帖子</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+  </div>
+
+</header>
+
+  <main id='index'>
+  <div class="posts-list">
+    
+      <section>
+        <a href="/2017-10-17/代码-微信活动分享+用户ID/">
+          <h3 class='post-head'>
+            微信活动分享
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(ua.match(/MicroMessenger/i)==&quot;micromessenger&quot;) &#123;</span><br><span class="line">    var activeidss = $(this.userData.name).selector;</span><br><span class="line">                        this.setXHR(&quot;weixin/sigin&quot;, function()&#123;</span><br><span class="line">                            var router = _this.getApiRouter(&quot;weixin/sigin&quot;, &#123;&#125;);</span><br><span class="line">                            return _this.postData(router.url, router.data, function(json)&#123;</span><br><span class="line">                                if(json.error == -1)&#123;</span><br><span class="line">                                    var jsapi_t = json.jsapi_ticket;</span><br><span class="line">                                    var access_t = json.access_token;</span><br><span class="line">                                    var wxTimes = new Date().getTime() ;</span><br><span class="line">                                    var stra_z = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;</span><br><span class="line">                                    var n = 16, s = &quot;&quot;;</span><br><span class="line">                                    for(var i = 0; i &lt; n; i++)&#123;</span><br><span class="line">                                        var rand = Math.floor(Math.random() * stra_z.length);</span><br><span class="line">                                        s += stra_z.charAt(rand);</span><br><span class="line">                                    &#125;</span><br><span class="line">                                    var wxnoncestr = s</span><br><span class="line"></span><br><span class="line">                                    var wxurl = window.location.href.split(&apos;#&apos;)[0];</span><br><span class="line"></span><br><span class="line">                                    var Base64=&#123;_keyStr:&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot;,encode:function(e)&#123;var t=&quot;&quot;;var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f&lt;e.length)&#123;n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n&gt;&gt;2;o=(n&amp;3)&lt;&lt;4|r&gt;&gt;4;u=(r&amp;15)&lt;&lt;2|i&gt;&gt;6;a=i&amp;63;if(isNaN(r))&#123;u=a=64&#125;else if(isNaN(i))&#123;a=64&#125;t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)&#125;return t&#125;,decode:function(e)&#123;var t=&quot;&quot;;var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,&quot;&quot;);while(f&lt;e.length)&#123;s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s&lt;&lt;2|o&gt;&gt;4;r=(o&amp;15)&lt;&lt;4|u&gt;&gt;2;i=(u&amp;3)&lt;&lt;6|a;t=t+String.fromCharCode(n);if(u!=64)&#123;t=t+String.fromCharCode(r)&#125;if(a!=64)&#123;t=t+String.fromCharCode(i)&#125;&#125;t=Base64._utf8_decode(t);return t&#125;,_utf8_encode:function(e)&#123;e=e.replace(/rn/g,&quot;n&quot;);var t=&quot;&quot;;for(var n=0;n&lt;e.length;n++)&#123;var r=e.charCodeAt(n);if(r&lt;128)&#123;t+=String.fromCharCode(r)&#125;else if(r&gt;127&amp;&amp;r&lt;2048)&#123;t+=String.fromCharCode(r&gt;&gt;6|192);t+=String.fromCharCode(r&amp;63|128)&#125;else&#123;t+=String.fromCharCode(r&gt;&gt;12|224);t+=String.fromCharCode(r&gt;&gt;6&amp;63|128);t+=String.fromCharCode(r&amp;63|128)&#125;&#125;return t&#125;,_utf8_decode:function(e)&#123;var t=&quot;&quot;;var n=0;var r=c1=c2=0;while(n&lt;e.length)&#123;r=e.charCodeAt(n);if(r&lt;128)&#123;t+=String.fromCharCode(r);n++&#125;else if(r&gt;191&amp;&amp;r&lt;224)&#123;c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&amp;31)&lt;&lt;6|c2&amp;63);n+=2&#125;else&#123;c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&amp;15)&lt;&lt;12|(c2&amp;63)&lt;&lt;6|c3&amp;63);n+=3&#125;&#125;return t&#125;&#125;   </span><br><span class="line"></span><br><span class="line">                                        //signature</span><br><span class="line">                                    var wxstring1 =&quot;jsapi_ticket=&quot;+jsapi_t + &quot;&amp;noncestr=&quot; + wxnoncestr + &quot;&amp;timestamp=&quot; + wxTimes+ &quot;&amp;url=&quot; + wxurl</span><br><span class="line">                                    var sha = hex_sha1(wxstring1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                    wx.config(&#123;</span><br><span class="line">                                        debug: false,</span><br><span class="line">                                        appId: &apos;wxe7b476931&apos;,</span><br><span class="line">                                        timestamp: wxTimes,</span><br><span class="line">                                        nonceStr: wxnoncestr,</span><br><span class="line">                                        signature: sha,</span><br><span class="line">                                        jsApiList: [</span><br><span class="line">                                            // 所有要调用的 API 都要加到这个列表中</span><br><span class="line">                                            &apos;onMenuShareTimeline&apos;,</span><br><span class="line">                                            &apos;onMenuShareAppMessage&apos;,</span><br><span class="line">                                            &apos;hideMenuItems&apos;</span><br><span class="line">                                          ]</span><br><span class="line">                                    &#125;); </span><br><span class="line">                                    wx.ready(function () &#123;   </span><br><span class="line">                                        wx.hideMenuItems(&#123;menuList: [&apos;menuItem:share:qq&apos;,</span><br><span class="line">                                                       &apos;menuItem:share:weiboApp&apos;,</span><br><span class="line">                                                       &apos;menuItem:favorite&apos;,</span><br><span class="line">                                                       // &apos;menuItem:share:appMessage&apos;,</span><br><span class="line">                                                       &apos;menuItem:share:QZone&apos;,</span><br><span class="line">                                                       &apos;menuItem:openWithSafari&apos;,</span><br><span class="line">                                                       &apos;menuItem:openWithQQBrowser&apos;,</span><br><span class="line">                                                       &apos;menuItem:share:email&apos;,</span><br><span class="line">                                                       &apos;menuItem:share:brand&apos;,</span><br><span class="line">                                                       &apos;menuItem:editTag&apos;,</span><br><span class="line">                                                       &apos;menuItem:share:facebook&apos;,</span><br><span class="line">                                                       &apos;menuItem:setFont&apos;,</span><br><span class="line">                                                       &apos;menuItem:exposeArticle&apos;,</span><br><span class="line">                                                       &apos;menuItem:copyUrl&apos;,</span><br><span class="line">                                                       &apos;menuItem:openWithSafari&apos;,</span><br><span class="line">                                                       &apos;menuItem:readMode&apos;,</span><br><span class="line">                                                       &apos;menuItem:originPage&apos;,</span><br><span class="line">                                                       &apos;menuItem:delete&apos;]</span><br><span class="line">                                        &#125;);</span><br><span class="line"></span><br><span class="line">                                        //分享到朋友圈</span><br><span class="line">                                        wx.onMenuShareTimeline(&#123;</span><br><span class="line">                                            title: &apos;新年大红包，快来开个“旺”运吧。&apos;, // 分享标题</span><br><span class="line">                                            link: &apos;http://wx.xxxx.com/#activity/chest?invite=&apos;+activeidss+&apos;&apos;, // 分享链接</span><br><span class="line">                                            imgUrl: &apos;http://wx.xxxx.com/static/img/chest/share.jpg&apos;, // 分享图标</span><br><span class="line">                                            success: function () &#123; </span><br><span class="line"></span><br><span class="line">                                            &#125;,</span><br><span class="line"></span><br><span class="line">                                            cancel: function () &#123; </span><br><span class="line">                                                // 用户取消分享后执行的回调函数</span><br><span class="line">                                            &#125;</span><br><span class="line">                                        &#125;);</span><br><span class="line">                                        //分享朋友</span><br><span class="line">                                        wx.onMenuShareAppMessage(&#123;</span><br><span class="line">                                            title: &apos;送红包！新年行“旺”运&apos;, // 分享标题</span><br><span class="line">                                            desc: &apos;新年大红包，快来开个“旺”运吧。&apos;, // 分享描述</span><br><span class="line">                                            link: &apos;http://wx.xxxx.com/#activity/chest?invite=&apos;+activeidss+&apos;&apos;, // 分享链接</span><br><span class="line">                                            imgUrl: &apos;http://wx.xxxx.com/static/img/chest/share.jpg&apos;, // 分享图标</span><br><span class="line">                                            success: function () &#123; </span><br><span class="line"></span><br><span class="line">                                            &#125;,</span><br><span class="line"></span><br><span class="line">                                            cancel: function () &#123; </span><br><span class="line">                                                // 用户取消分享后执行的回调函数</span><br><span class="line">                                            &#125;</span><br><span class="line">                                        &#125;);</span><br><span class="line">                                                            </span><br><span class="line">                                    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                &#125;</span><br><span class="line"></span><br><span class="line">                            &#125;);</span><br><span class="line"></span><br><span class="line">                        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#代码" class='tag'>代码</a>
+
+  <a href="/tags/#微信分享" class='tag'>微信分享</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/代码-纯CSS3实现多列的瀑布流布局/">
+          <h3 class='post-head'>
+            纯CSS3实现多列的瀑布流布局
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h2 id="纯CSS3实现多列的瀑布流布局"><a href="#纯CSS3实现多列的瀑布流布局" class="headerlink" title="纯CSS3实现多列的瀑布流布局"></a>纯CSS3实现多列的瀑布流布局</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;纯CSS3实现多列的瀑布流布局 &lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;</span><br><span class="line">body &#123;</span><br><span class="line">    background-color: #f6f6f6;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container &#123;</span><br><span class="line">    width: 80%;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.waterfall &#123;</span><br><span class="line">    -moz-column-count: 3;</span><br><span class="line">    -webkit-column-count: 3;</span><br><span class="line">    column-count: 3;</span><br><span class="line">    -moz-column-width: 24em;</span><br><span class="line">    -webkit-column-width: 24em;</span><br><span class="line">    column-width: 24em;</span><br><span class="line">    -moz-column-gap: 1em;</span><br><span class="line">    -webkit-column-gap: 1em;</span><br><span class="line">    column-gap: 1em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.pin &#123;</span><br><span class="line">    padding: 1em;</span><br><span class="line">    margin: 0 0.125em 1em;</span><br><span class="line">    -moz-page-break-inside: avoid;</span><br><span class="line">    -webkit-column-break-inside: avoid;</span><br><span class="line">    break-inside: avoid;</span><br><span class="line">    background: white;</span><br><span class="line">    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);</span><br><span class="line">    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);</span><br><span class="line">    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.pin img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding-bottom: 1em;</span><br><span class="line">    margin-bottom: 0.5em;</span><br><span class="line">    border-bottom: 1px solid #cccccc;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;waterfall&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/640x4:3&quot; /&gt;</span><br><span class="line">                &lt;p&gt;1 convallis timestamp&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                2 Donec a fermentum nisi.</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/640x3:4&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    3 Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://loremflickr.com/640/480/germany&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    4 Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/480x4:3&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque. Nam ac elit risus, ac blandit dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta tortor ut convallis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/480x3:4&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    6 Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus suscipit. Suspendisse rutrum turpis quis nunc convallis quis aliquam mauris suscipit. Duis rutrum porta tortor ut convallis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/640x21:10&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    7 Nullam eget lectus augue.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    8 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/800x4:3&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    9 Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum mattis. Duis rutrum porta tortor ut convallis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/900x4:2&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    10 Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum mattis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/640x5:4&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    11 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque. Nam ac elit risus, ac blandit dui. Duis rutrum porta tortor ut convallis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://loremflickr.com/1024/768/cool&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    12 Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum mattis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/800x16:3&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    13 Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum mattis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://loremflickr.com/1024/768/vw,golf,variant/all&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    14 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque. Nam ac elit risus, ac blandit dui. Duis rutrum porta tortor ut convallis.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/300x4:3&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    15 Nullam eget lectus augue.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;pin&quot;&gt;</span><br><span class="line">                &lt;img src=&quot;http://dummyimage.com/640x16:9&quot; /&gt;</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    16 Nullam eget lectus augue.</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#css" class='tag'>css</a>
+
+  <a href="/tags/#代码" class='tag'>代码</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/代码-请使用竖屏浏览/">
+          <h3 class='post-head'>
+            wap-请使用竖屏浏览
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>手机防横屏浏览，为了更好的体验，请使用竖屏浏览<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line"> /* 样式放在结尾，防止 base64 图片造成拥塞 */</span><br><span class="line">    @-webkit-keyframes rotation &#123;</span><br><span class="line">        10% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">        50%, 60% &#123; transform: rotate(0deg); -webkit-transform: rotate(0deg) &#125;</span><br><span class="line">        90% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">        100% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes rotation &#123;</span><br><span class="line">        10% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">        50%, 60% &#123; transform: rotate(0deg); -webkit-transform: rotate(0deg) &#125;</span><br><span class="line">        90% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">        100% &#123; transform: rotate(90deg); -webkit-transform: rotate(90deg) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    #orientLayer &#123; display: none; &#125;</span><br><span class="line">    @media screen and (min-aspect-ratio: 13/9) &#123; #orientLayer &#123; display: block; &#125; &#125;</span><br><span class="line">    .mod-orient-layer &#123; display: none; position: fixed; width: 100%; left: 0; top: 0; right: 0; bottom: 0; background: #000; z-index: 9997 &#125;</span><br><span class="line">    .mod-orient-layer__content &#123; position: absolute; width: 100%; top: 45%; margin-top: -75px; text-align: center &#125;</span><br><span class="line">    .mod-orient-layer__icon-orient &#123;background-image:url(img/iphone.png);display: inline-block; width: 67px; height: 109px;</span><br><span class="line">        transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-animation: rotation infinite 1.5s ease-in-out; animation: rotation infinite 1.5s ease-in-out; -webkit-background-size: 67px; background-size: 67px &#125;</span><br><span class="line">    .mod-orient-layer__desc &#123; margin-top: 20px; font-size: 15px; color: #fff &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div id=&quot;orientLayer&quot; class=&quot;mod-orient-layer&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;mod-orient-layer__content&quot;&gt; &lt;i class=&quot;icon mod-orient-layer__icon-orient&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;div class=&quot;mod-orient-layer__desc&quot;&gt;为了更好的体验，请使用竖屏浏览&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/代码/">代码</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#移动端" class='tag'>移动端</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/命令-git常用命令/">
+          <h3 class='post-head'>
+            Git常用命令
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            <p><strong>Git</strong> 是目前世界上最先进的分布式版本控制系统。</p>
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/命令/">命令</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#git" class='tag'>git</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/Web前端工程师编程能力成长之路/">
+          <h3 class='post-head'>
+            web前端工程师编程能力成长之路
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h2 id="【前言】"><a href="#【前言】" class="headerlink" title="##【前言】##"></a>##【前言】##</h2><p>所谓的天才，只不过是比平常人更快的掌握技能、完成工作罢了； 只要你找到了正确的方向，并辅以足够的时间，你一样能够踏上成功彼岸。</p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web前端/">Web前端</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#成长之路" class='tag'>成长之路</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/命令-本地起服务/">
+          <h3 class='post-head'>
+            命令-本地起服务
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h2 id="ssr"><a href="#ssr" class="headerlink" title="ssr"></a>ssr</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm  install -g ssr</span><br><span class="line">cd 进入文件夹</span><br><span class="line">ssr</span><br><span class="line">localhost:1987  预览</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/命令/">命令</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#命令" class='tag'>命令</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/工具-Atom/">
+          <h3 class='post-head'>
+            Atom
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><p><a href="https://atom.io/" target="_blank" rel="noopener">https://atom.io/</a>     atom官网<br><a href="https://atom-china.org/" target="_blank" rel="noopener">https://atom-china.org/</a>   中文社区<br><a href="http://wiki.jikexueyuan.com/project/atom/atom-minify.html" target="_blank" rel="noopener">http://wiki.jikexueyuan.com/project/atom/atom-minify.html</a>     基础插件及应用</p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#Atom" class='tag'>Atom</a>
+
+  <a href="/tags/#前端工具" class='tag'>前端工具</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/工具-Atom快捷键/">
+          <h3 class='post-head'>
+            Atom快捷键
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>文件切换<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctrl-shift-s 保存所有打开的文件</span><br><span class="line">cmd-shift-o 打开目录</span><br><span class="line">cmd-\ 显示或隐藏目录树</span><br><span class="line">ctrl-0 焦点移到目录树</span><br><span class="line">目录树下，使用a，m，delete来增加，修改和删除</span><br><span class="line">cmd-t或cmd-p 查找文件</span><br><span class="line">cmd-b 在打开的文件之间切换</span><br><span class="line">cmd-shift-b 只搜索从上次git commit后修改或者新增的文件</span><br></pre></td></tr></table></figure></p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#笔记" class='tag'>笔记</a>
+
+  <a href="/tags/#Atom" class='tag'>Atom</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/工具-BrowserSync/">
+          <h3 class='post-head'>
+            BrowserSync
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h2 id="BrowserSync"><a href="#BrowserSync" class="headerlink" title="BrowserSync"></a>BrowserSync</h2><h4 id="省时的浏览器同步测试工具"><a href="#省时的浏览器同步测试工具" class="headerlink" title="省时的浏览器同步测试工具"></a>省时的浏览器同步测试工具</h4><blockquote>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#前端工具" class='tag'>前端工具</a>
+
+  <a href="/tags/#BrowserSync" class='tag'>BrowserSync</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="/2017-10-17/Bootstrap的基本的HTML引用/">
+          <h3 class='post-head'>
+            Bootstrap的基本的HTML引用
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>##Bootstrap 模版##<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">   &lt;head&gt;</span><br><span class="line">      &lt;title&gt;Bootstrap 模板&lt;/title&gt;</span><br><span class="line">      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">      &lt;!-- 引入 Bootstrap --&gt;</span><br><span class="line">      &lt;link href=&quot;http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 --&gt;</span><br><span class="line">      &lt;!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 --&gt;</span><br><span class="line">      &lt;!--[if lt IE 9]&gt;</span><br><span class="line">         &lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">         &lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;![endif]--&gt;</span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) --&gt;</span><br><span class="line">      &lt;script src=&quot;https://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;!-- 包括所有已编译的插件 --&gt;</span><br><span class="line">      &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">   &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017_10_17</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Bootstrap/">Bootstrap</a>
+  </div>
+
+
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="/tags/#Bootstrap" class='tag'>Bootstrap</a>
+
+
+          
+        </div>
+      </section>
+    
+  </div>
+  <!-- 右-侧边栏 -->
+  <aside>
+    <div class="search">
+          <div id="clock" class="light">
+             <div class="display">
+                <div class="weekdays"></div>
+                <div class="ampm"></div>
+                <div class="digits"></div>
+            </div>
+         </div>
+    </div>
+
+    
+    <div class="search">
+      <div class="content">
+         <form action="//www.google.com/search" target="_blank" class="search-form">
+          <input type="text" name="q" maxlength="20" placeholder="搜索">
+          <input type="hidden" name='sitesearch' value="http://gqblog.cn">
+        </form>
+      </div>
+    </div>
+    
+   
+    
+      <div class="categories">
+        <h2>
+          文章分类
+        </h2>
+        <div class="content">
+          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ajax/">Ajax</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap/">Bootstrap</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5/">HTML5</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JQuery/">JQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web前端/">Web前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码/">代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/命令/">命令</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/模板引擎/">模板引擎</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/移动端/">移动端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网站/">网站</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源/">资源</a></li></ul>
+        </div>
+      </div>
+    
+
+    <!-- 标签云 -->
+    
+     <div class="categories">
+        <h2>
+          标签云
+        </h2>
+      <div class="content tagcloud">
+            <a href="/tags/Ajax/" style="font-size: 18px;">Ajax</a> <a href="/tags/Angular/" style="font-size: 14px;">Angular</a> <a href="/tags/Atom/" style="font-size: 16px;">Atom</a> <a href="/tags/Bootstrap/" style="font-size: 18px;">Bootstrap</a> <a href="/tags/BrowserSync/" style="font-size: 14px;">BrowserSync</a> <a href="/tags/Grunt/" style="font-size: 14px;">Grunt</a> <a href="/tags/HTML5/" style="font-size: 18px;">HTML5</a> <a href="/tags/Handlebars/" style="font-size: 14px;">Handlebars</a> <a href="/tags/JQuery/" style="font-size: 20px;">JQuery</a> <a href="/tags/Jade/" style="font-size: 16px;">Jade</a> <a href="/tags/Javascript/" style="font-size: 32px;">Javascript</a> <a href="/tags/Js设计/" style="font-size: 16px;">Js设计</a> <a href="/tags/Markdown/" style="font-size: 16px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 14px;">MySQL</a> <a href="/tags/Nodejs/" style="font-size: 14px;">Nodejs</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 16px;">React Native</a> <a href="/tags/SEO优化/" style="font-size: 14px;">SEO优化</a> <a href="/tags/Sublime-Text3/" style="font-size: 18px;">Sublime Text3</a> <a href="/tags/Template-js/" style="font-size: 14px;">Template.js</a> <a href="/tags/Typecho/" style="font-size: 14px;">Typecho</a> <a href="/tags/Vue-js/" style="font-size: 24px;">Vue.js</a> <a href="/tags/Vue-js-axios/" style="font-size: 14px;">Vue.js, axios</a> <a href="/tags/Webpack/" style="font-size: 14px;">Webpack</a> <a href="/tags/Web前端框架/" style="font-size: 14px;">Web前端框架</a> <a href="/tags/Web前端资源/" style="font-size: 14px;">Web前端资源</a> <a href="/tags/WordPress/" style="font-size: 14px;">WordPress</a> <a href="/tags/Yeoman/" style="font-size: 14px;">Yeoman</a> <a href="/tags/bower/" style="font-size: 14px;">bower</a> <a href="/tags/create-react-app/" style="font-size: 14px;">create-react-app</a> <a href="/tags/css/" style="font-size: 26px;">css</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 18px;">html</a> <a href="/tags/jQuery/" style="font-size: 24px;">jQuery</a> <a href="/tags/node/" style="font-size: 14px;">node</a> <a href="/tags/pc/" style="font-size: 16px;">pc</a> <a href="/tags/wap/" style="font-size: 16px;">wap</a> <a href="/tags/webpack/" style="font-size: 14px;">webpack</a> <a href="/tags/代码/" style="font-size: 28px;">代码</a> <a href="/tags/前后分离开/" style="font-size: 14px;">前后分离开</a> <a href="/tags/前端工具/" style="font-size: 20px;">前端工具</a> <a href="/tags/前端框架/" style="font-size: 14px;">前端框架</a> <a href="/tags/加密/" style="font-size: 14px;">加密</a> <a href="/tags/命令/" style="font-size: 14px;">命令</a> <a href="/tags/工作/" style="font-size: 14px;">工作</a> <a href="/tags/微信分享/" style="font-size: 16px;">微信分享</a> <a href="/tags/成长之路/" style="font-size: 14px;">成长之路</a> <a href="/tags/插件/" style="font-size: 22px;">插件</a> <a href="/tags/正则表达式/" style="font-size: 20px;">正则表达式</a> <a href="/tags/注册登录/" style="font-size: 16px;">注册登录</a> <a href="/tags/移动端/" style="font-size: 22px;">移动端</a> <a href="/tags/笔记/" style="font-size: 30px;">笔记</a> <a href="/tags/网站/" style="font-size: 14px;">网站</a> <a href="/tags/设计/" style="font-size: 14px;">设计</a> <a href="/tags/读书/" style="font-size: 20px;">读书</a> <a href="/tags/跳转/" style="font-size: 14px;">跳转</a> <a href="/tags/面试/" style="font-size: 14px;">面试</a>
+      </div>
+    </div>
+    
+
+     
+      <div class="avatar">
+        <img src="/css/images/pose.png" alt="avatar">
+          
+      </div>
+    
+    
+    
+      <div class="links">
+        <h2>
+          友情链接
+        </h2>
+        <div class="content">
+          
+            <a href="https://gqzydh.github.io/nav/" target="_blank">GQ个人导航网</a>
+          
+        </div>
+      </div>
+    
+  </aside>
+</main>
+
+  <div class="paging">
+  <div class="paging-container">
+    
+    <div class='page-prev'>
+      <a href="/page/8/">上一页</a>
+    </div>
+    
+    
+    <div class='page-next'>
+      <a href="/page/10/">下一页</a>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<style type="text/css">
+ /*-------------------------
+  The clocks 时间
+--------------------------*/
+
+#clock.light{
+  background-color:#f3f3f3;
+  color:#272e38;
+  position: relative;
+}
+
+#clock .display{
+  padding: 10px 7px 7px;
+  border-radius:6px;
+ /*  height: 54px; */
+}
+
+
+/*-------------------------
+  Light color theme
+--------------------------*/
+
+#clock.light:after{
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+#clock.light .digits div span{
+  background-color:#272e38;
+  border-color:#272e38; 
+}
+
+#clock.light .digits div.dots:before,
+#clock.light .digits div.dots:after{
+  background-color:#272e38;
+}
+
+#clock.light .display{
+  /* background-color:#dddddd; */
+  box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #fafafa;
+}
+
+
+/*-------------------------
+  Dark color theme
+--------------------------*/
+
+
+#clock.dark{
+  background-color:#272e38;
+  color:#cacaca;
+  border-radius:6px;
+  position: relative;
+}
+
+#clock.dark:after{
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+#clock.dark .digits div span{
+  background-color:#cacaca;
+  border-color:#cacaca; 
+}
+
+#clock.dark .display{
+  background-color:#1d2935;
+  box-shadow:0 1px 1px rgba(0,0,0,0.08) inset, 0 1px 1px #2d3642;
+}
+
+#clock.dark .digits div.dots:before,
+#clock.dark .digits div.dots:after{
+  background-color:#cacaca;
+}
+
+#clock.dark .ampm{
+  position:absolute;
+  bottom:15px;
+  right:7px;
+  font-size:13px;
+  color:#cacaca;
+}
+
+/*-------------------------
+  The Digits
+--------------------------*/
+
+
+#clock .digits div{
+  text-align:left;
+  position:relative;
+  width: 24px;
+  height:50px;
+  display:inline-block;
+  margin:0 4px;
+}
+
+#clock .digits div span{
+  opacity:0;
+  position:absolute;
+
+  -webkit-transition:0.25s;
+  -moz-transition:0.25s;
+  transition:0.25s;
+}
+
+#clock .digits div span:before,
+#clock .digits div span:after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:0;
+  border:5px solid transparent;
+}
+
+#clock .digits .d1{     height:4px;width:14px;top:0;left:5px;}
+#clock .digits .d1:before{  border-width:0 4px 4px 0;border-right-color:inherit;left:-4px;}
+#clock .digits .d1:after{ border-width:0 0 4px 4px;border-left-color:inherit;right:-4px;}
+
+#clock .digits .d2{     height:4px;width:14px;top:18px;left:5px;}
+#clock .digits .d2:before{  border-width:3px 4px 2px;border-right-color:inherit;left:-8px;}
+#clock .digits .d2:after{ border-width:3px 4px 2px;border-left-color:inherit;right:-8px;}
+
+#clock .digits .d3{     height:4px;width:14px;top:39px;left:5px;}
+#clock .digits .d3:before{  border-width:4px 4px 0 0;border-right-color:inherit;left:-4px;}
+#clock .digits .d3:after{ border-width:4px 0 0 4px;border-left-color:inherit;right:-4px;}
+
+#clock .digits .d4{     width:4px;height:10px;top:6px;left:0;}
+#clock .digits .d4:before{  border-width:0 4px 4px 0;border-bottom-color:inherit;top:-4px;}
+#clock .digits .d4:after{ border-width:0 0 4px 4px;border-left-color:inherit;bottom:-4px;}
+
+#clock .digits .d5{     width:4px;height:10px;top:6px;right:0;}
+#clock .digits .d5:before{  border-width:0 0 4px 4px;border-bottom-color:inherit;top:-4px;}
+#clock .digits .d5:after{ border-width:4px 0 0 4px;border-top-color:inherit;bottom:-4px;}
+
+#clock .digits .d6{     width:4px;height:10px;top:26px;left:0;}
+#clock .digits .d6:before{  border-width:0 4px 4px 0;border-bottom-color:inherit;top:-4px;}
+#clock .digits .d6:after{ border-width:0 0 4px 4px;border-left-color:inherit;bottom:-4px;}
+
+#clock .digits .d7{     width:4px;height:10px;top:26px;right:0;}
+#clock .digits .d7:before{  border-width:0 0 4px 4px;border-bottom-color:inherit;top:-4px;}
+#clock .digits .d7:after{ border-width:4px 0 0 4px;border-top-color:inherit;bottom:-4px;}
+
+
+/* 1 */
+
+#clock .digits div.one .d5,
+#clock .digits div.one .d7{
+  opacity:1;
+}
+
+/* 2 */
+
+#clock .digits div.two .d1,
+#clock .digits div.two .d5,
+#clock .digits div.two .d2,
+#clock .digits div.two .d6,
+#clock .digits div.two .d3{
+  opacity:1;
+}
+
+/* 3 */
+
+#clock .digits div.three .d1,
+#clock .digits div.three .d5,
+#clock .digits div.three .d2,
+#clock .digits div.three .d7,
+#clock .digits div.three .d3{
+  opacity:1;
+}
+
+/* 4 */
+
+#clock .digits div.four .d5,
+#clock .digits div.four .d2,
+#clock .digits div.four .d4,
+#clock .digits div.four .d7{
+  opacity:1;
+}
+
+/* 5 */
+
+#clock .digits div.five .d1,
+#clock .digits div.five .d2,
+#clock .digits div.five .d4,
+#clock .digits div.five .d3,
+#clock .digits div.five .d7{
+  opacity:1;
+}
+
+/* 6 */
+
+#clock .digits div.six .d1,
+#clock .digits div.six .d2,
+#clock .digits div.six .d4,
+#clock .digits div.six .d3,
+#clock .digits div.six .d6,
+#clock .digits div.six .d7{
+  opacity:1;
+}
+
+
+/* 7 */
+
+#clock .digits div.seven .d1,
+#clock .digits div.seven .d5,
+#clock .digits div.seven .d7{
+  opacity:1;
+}
+
+/* 8 */
+
+#clock .digits div.eight .d1,
+#clock .digits div.eight .d2,
+#clock .digits div.eight .d3,
+#clock .digits div.eight .d4,
+#clock .digits div.eight .d5,
+#clock .digits div.eight .d6,
+#clock .digits div.eight .d7{
+  opacity:1;
+}
+
+/* 9 */
+
+#clock .digits div.nine .d1,
+#clock .digits div.nine .d2,
+#clock .digits div.nine .d3,
+#clock .digits div.nine .d4,
+#clock .digits div.nine .d5,
+#clock .digits div.nine .d7{
+  opacity:1;
+}
+
+/* 0 */
+
+#clock .digits div.zero .d1,
+#clock .digits div.zero .d3,
+#clock .digits div.zero .d4,
+#clock .digits div.zero .d5,
+#clock .digits div.zero .d6,
+#clock .digits div.zero .d7{
+  opacity:1;
+}
+
+
+/* The dots */
+
+#clock .digits div.dots{
+  width:5px;
+}
+
+#clock .digits div.dots:before,
+#clock .digits div.dots:after{
+  width:5px;
+  height:5px;
+  content:'';
+  position:absolute;
+  left:0;
+  top:10px;
+}
+
+#clock .digits div.dots:after{
+  top:30px;
+}
+
+
+/*-------------------------
+  Weekdays
+--------------------------*/
+
+
+#clock .weekdays{
+  font-size:12px;
+  width:100%;
+  padding-bottom: 14px;
+}
+
+
+#clock .weekdays span{
+  opacity:0.2;
+  padding:0 10px;
+}
+
+#clock .weekdays span.active{
+  opacity:1;
+}
+
+
+/*-------------------------
+    AM/PM
+--------------------------*/
+
+#clock .ampm{
+  position:absolute;
+  bottom:15px;
+  right:7px;
+  font-size:13px;
+} 
+</style>
+
+  <footer id="fooler">
+  <div class="copyright">
+    <div>
+      <ul>
+        <li><a href="https://gqzydh.github.io/nav/" target="_blank"> GQ个人导航网 </a></li>
+      </ul>
+  
+    </div>
+
+    <div>
+      <div class="fl">
+        <span style="padding-right:30px;">
+        &copy; 2019 |  <a href="http://gqblog.cn" target="_blank">GQ个人博客</a>&nbsp</span>
+        
+         本站总访客数 : <span id="busuanzi_value_site_uv"></span>人次 |
+         本站总访问量 : <span id="busuanzi_value_site_pv"></span>次
+        
+      </div>
+      <div class="fr">
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script src="https://cdn.staticfile.org/moment.js/2.23.0/moment.min.js"></script>
+<script src="https://cdn.staticfile.org/moment.js/2.23.0/locale/zh-cn.js"></script>
+<script src="/js/script.js"></script>
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("07/01/2017 09:30:00");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+      document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+
+<div class="nodisplay">
+<script src="https://s22.cnzz.com/z_stat.php?id=1272859133&web_id=1272859133" language="JavaScript"></script>
+</div>
+
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+</body>
+</html>
